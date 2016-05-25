@@ -1,0 +1,25 @@
+<%--
+ * HelloWorld1.psp
+ * Chapter 16, Oracle Database 11g PL/SQL Programming
+ * by Michael McLaughlin
+ *
+ * ALERTS:
+ *
+ * This script creates a static PL/SQL web page.
+ * --%>
+
+<%@ plsql language="PL/SQL" %>
+<%@ plsql procedure="HelloWorld1" %>
+<html>
+<title>HelloWorld1</title>
+<head>
+</head>
+<body>
+<%-- Print a plain string. --%>
+Hello World!
+<br /><br />
+<%-- Print using the PL/SQL Toolkit --%>
+<% htp.print('Hello World!'); %>
+</td></tr></table>
+</body>
+</html>

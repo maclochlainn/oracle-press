@@ -1,0 +1,44 @@
+<html>
+<! UploadBioSQLForm.htm                                   >
+<! Appendix C, Oracle Database 11g PL/SQL Programming         >
+<! by Michael McLaughlin                                      >
+<!                                                            >
+<! This script demonstrates an HTML FORM used to upload files >
+<! local files to the UploadBioSQL.php server-side program.   >
+<head>
+<title>
+  Appendix C : UploadBioSQLForm.htm
+</title>
+</head>
+<body>
+<form id="uploadForm"
+      action="http://hostname.domain_name/UploadDescSQL.php"
+      enctype="multipart/form-data"
+      method="post">
+  <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+      <td width=125>President Number</td>
+      <td>
+        <input id="id" name="id" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td width=125>President Name</td>
+      <td>
+        <input id="name" name="name" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td width=125>Select File</td>
+      <td>
+        <input id="uploadfilename" name="userfile" type="file">
+      </td>
+    </tr>
+    <tr>
+      <td width=125>Click Button to</td>
+      <td><input type="submit" value="Upload File"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

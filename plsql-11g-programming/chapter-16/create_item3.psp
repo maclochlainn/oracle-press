@@ -1,0 +1,64 @@
+<%--
+ * create_item3.psp
+ * Chapter 16, Oracle Database 11g PL/SQL Programming
+ * by Michael McLaughlin
+ *
+ * ALERTS:
+ *
+ * This script creates a dynamic PL/SQL web page.
+ * --%>
+
+<%@ plsql language="PL/SQL" type="PL/SQL type" %>
+<%@ plsql procedure="item3" %>
+<%-- Defines a parameter in a PARAMETER block. --%>
+<%@ plsql parameter="begin_id" type="NUMBER" default="NULL" %>
+<%@ plsql parameter="end_id" type="NUMBER" default="NULL" %>
+<head>
+<title>Item List PSP</title>
+  <%!
+    CURSOR get_items
+    ( begin_item_id NUMBER
+    , end_item_id   NUMBER ) IS
+      SELECT   item_id AS item_number
+      ,        item_title||': '||item_subtitle AS item_title
+      ,        item_release_date AS release_date
+      FROM     item
+      WHERE    item_id BETWEEN begin_item_id AND end_item_id;  %>
+</title>
+<body>
+<hr>
+<table cborder=2 style=background-color:feedb8>
+  <tr>
+    <td align="center"
+        style="color:#336699;background-color:#cccc99;font-eight:bold;width=50">
+      #
+    </td>
+    <td align="center"
+        style="color:#336699;background-color:#cccc99;font-weight:bold;width=200">
+      NAME
+    </td>
+    <td align="center"
+        style="color:#336699;background-color:#cccc99;font-weight:bold;width=100">
+      TENURE
+    </td>
+  </tr>
+  <% FOR i IN get_items(year1,year2) LOOP %>
+  <tr>
+    <td align="center"
+        style="color:#336699;background-color:#f7f7e7">
+      <%= i.item_number %>
+    </td>
+    <td align="center"
+        style="color:#336699;background-color:#f7f7e7">
+      <%= i.item_title %>
+    </td>
+    <td align="center"
+      style="color:#336699;background-color:#f7f7e7">
+      <%= i.release_date %>
+    </td>
+  </tr>
+  <% END LOOP; %>
+</table>
+<hr />
+</body>
+</html>

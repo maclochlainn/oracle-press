@@ -1,0 +1,29 @@
+<%--
+ * HelloWorld2.psp
+ * Chapter 16, Oracle Database 11g PL/SQL Programming
+ * by Michael McLaughlin
+ *
+ * ALERTS:
+ *
+ * This script creates a dynamic PL/SQL web page.
+ * --%>
+
+<%@ plsql language="PL/SQL" type="PL/SQL type" %>
+<%@ plsql procedure="HelloWorld2" %>
+<%-- Defines a parameter in a PARAMETER block. --%>
+<%@ plsql parameter="who" type="VARCHAR2" default="NULL" %>
+<head>
+<title>HelloWorld2</title>
+<%!
+  CURSOR get_user
+  ( requestor VARCHAR2) IS
+    SELECT   'Hello '|| USER ||' schema, this is a '||requestor||'!' line
+    FROM     dual;
+%>
+</head>
+<body>
+  <% FOR i IN get_user(who) LOOP %>
+    <%=  i.line %>
+  <% END LOOP; %>
+</body>
+</html>
